@@ -1,0 +1,17 @@
+SYS_LIBRARIES= -lXm -lXt -lXmu -lX11 -lm
+
+PURIFY= #purify -chain-length=20 -linker=
+PURELINK = #purelink
+
+CC = $(PURIFY)$(PURELINK) gcc -ansi # gcc -b i486-linuxaout -I/usr/i486-linuxaout
+
+CFLAGS=  -g -DMOTIF -DREGEXP -DSMARTMB -DSUBPLUSS
+SRCS= GUIFBT.c IconList.c guifbff.c xreg.c GUIFB.c DumbClip.c SmartMB.c SubPlusS.c
+OBJS= GUIFBT.o IconList.o guifbff.o xreg.o GUIFB.o DumbClip.o SmartMB.o SubPlusS.o
+PROGRAM= GUIFBT
+
+ComplexProgramTarget(GUIFBT)
+
+GUIFB.c: GUIFB.h GUIFBP.h
+
+depend:: IconListP.h IconList.h xreg.h

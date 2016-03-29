@@ -1,0 +1,46 @@
+
+Sun Feb 11 22:24:44 CST 1996
+
+Minor bug fixes.
+Rearranged the icon pairs stuff enough so it will work.
+Added path completion for text fields.
+
+Mon Feb 12 12:01:44 CST 1996
+
+Minor bug fixes
+Fixed bad XtManageChild in demo program
+Fixed filter updating when a path is specified
+
+Tue Feb 13 00:00:40 CST 1996
+
+
+Major bug fixes
+	overwriting part of text field (caused unable to double click on selection)
+	completeSelection now acts like the shell would in the FILTER
+	rewrite of a bunch of update* code
+	other stuff
+
+
+Tue Feb 13 18:08:03 CST 1996
+
+	Bigtime revision.  Moved the completion action down to the selection area.
+Now the completion and the filter mask work in unison.  This meant that I had
+to update/change alot of routines.  Fixed up some includes for SGI and the
+Imakefile.
+
+Mon Feb 19 19:20:10 CST 1996
+
+
+Fixes from restrugo@fate.fateware.com to compile cleanly under Motif 2.0
+
+
+Tue Feb 20 11:17:23 CST 1996
+
+
+Fixed placement of offset pointer int gui*.c.  Wasn't picking up the last filter
+element.
+
+Mon Mar  4 18:01:09 CST 1996
+
+Fixed GUIFBCompleteSelection which would give bogus results if more than 2
+items matched

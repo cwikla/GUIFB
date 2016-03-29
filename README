@@ -1,0 +1,67 @@
+
+	Ok, here's the deal on these widgets:
+
+	They are partially functional. This means that things like
+the SetValues procedure is not written.  But it doesn't mean
+that these things aren't functional -- in fact they have to be
+since I use them in the program I write for my company.  So you
+can assume that any bugs I find will be fixed, and any features
+will be added if I need them. (Some day I'll have time and
+revamp all my widgets.)
+
+	If this bothers you, then don't use these. They are free ya know...
+(I'm way too busy to get these to the distribution quality I would like,
+but I probably will someday -- not bad for 5 days of work though...)
+These widgets work with Motif 1.2.4 (that's what I use...)
+
+	So we have:
+
+XmGUIFileBoxWidget: Replacement for the XmFileSelectionBoxWidget.
+	Features:
+		standard and advanced modes
+		multiple file filter specification
+		simple and/or regular file pattern matching. For example
+			you can have "*.[cC] *.out \R.*\.bob$" as the filter string.
+			The first two should be obvious. The last, if a filter piece
+			starts with \R then it is a regular expression match.
+		single/double column layout with icons
+		file completion (almost done for the selection too...), jump to selection
+		Two actions:  GUIFileBoxCompleteSelection(), GUIFileBoxScrollToFirstFile()
+		Pre/Pos update callbacks so you can pop up your favorite wait cursor.
+		Someday I hope to get the iconpair resource to read a MIME type of file
+		and display the correct icon. (For now I plan to be clever and make our
+		programs icon show up in the browser for our types of files...)
+
+
+XmIconListWidget: List widget with icons.  Currently uses XDrawString and char*'s
+	I'll update to XmStrings someday...
+
+XmDumbClipWidget: Clip widget that asks it child how big it should be. The XmDrawingArea
+	wasn't doing what I wanted and was driving me insane...
+
+guifbff.*: general file searching/matching routines (not-cached like the Motif ones,
+		but oh well)
+
+xreg*.[ch]: regular expression matching stuff. NOTE I couldn't find anything that
+	REALLY defined what kind of regexp stuff a machine has, so you will probably
+	have to #define one of REGEXP, REGCOMP or REG_EXEC to get it to work correctly
+	If filtering doesn't seem to work, try another regexp #define.
+
+If you #define SMARTMB you get the convenience of using pre-created dialog boxes
+for the XmGUIFileBoxWidget. Needs my SmartMB widget at ftp.x.org:/contrib/widgets
+
+If you #define SUBPLUSS you get the convenience of using menus with the correct
+visual set.
+
+
+	The demo program doesn't really do the widget justice without the SmartMB widget
+stuff.  It will come up in Standard mode. Set the resource *dialogMode: advanced_mode
+to see the advanced mode.
+
+	I do dual development on SPARC and Linux so this has been tested on those two platforms.
+
+	Feel free to send any bug reports to cwikla@wolfram.com.
+
+
+
+
